@@ -1,11 +1,7 @@
-```markdown
-# Alice for Termux 🤖
+让我们开始吧！！！
+📥 安装部署
 
-一个专为Termux设计的智能助手项目，让天童爱丽丝在你的移动设备上焕发活力！
-
-## 📥 安装部署
-
-### 第一步：克隆项目
+第一步：克隆项目
 
 ```bash
 git clone https://github.com/DXBbyd/Alice_for_termux.git
@@ -110,3 +106,4 @@ pip install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple
 
 ---
 README.md直接用AI写的，因为我懒awa
+本人是在校初中生更新什么的可能会很慢，QAQ
