@@ -96,7 +96,7 @@ def show_system_info():
     plugin_enabled = plugin_total - len(PLUGIN_DISABLED)
     return (
         "=== 系统信息 ===\n"
-        f"🤖 程序：Alice X（QQ适配版）\n"
+        f"🤖 程序：Alice X\n"
         f"🐍 Python：{sys.version.split()[0]}\n"
         f"🔌 插件：{plugin_total}个（启用{plugin_enabled}/禁用{len(PLUGIN_DISABLED)}）\n"
         f"⏰ 时间：{datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
@@ -125,12 +125,7 @@ def show_help():
         "   /reset     - 重载所有插件",
         "   /disable 指令 - 禁用插件（例：/disable /weather）",
         "   /enable 指令  - 启用插件（例：/enable /weather）",
-        "",
-        "📌 QQ适配指令",
-        "   /start ws  - 启动WS服务器（Napcat连接地址：ws://127.0.0.1:2048/ws）",
-        "   /stop ws   - 关闭WS服务器",
-        "",
-        "🔌 插件调用：直接输入插件指令（例：/天气 北京、/一言、/pic）"
+        ",
     ]
     return "\n".join(help_content)
 
@@ -177,7 +172,7 @@ def call_plugin(user_input: str) -> str:
     # 拆分指令与参数（支持参数含空格）
     parts = user_input.split(maxsplit=1)
     cmd = parts[0]
-    params = parts[1].strip() if len(parts) > 1 else ""
+    params = parts[1]。strip() if len(parts) > 1 else ""
 
     # 匹配插件指令并调用
     if cmd in PLUGIN_REGISTRY:
@@ -189,7 +184,6 @@ def call_plugin(user_input: str) -> str:
     return ""  # 未匹配到插件，返回空
 
 
-# ---------------------- QQ适配：WS服务器控制（新增核心） ----------------------
 def start_ws_server():
     """启动WS服务器（供Napcat连接，后台线程运行）"""
     from QQadapter import run_ws_server
@@ -204,10 +198,10 @@ def stop_ws_server():
     from QQadapter import shutdown_ws_server
     global ws_thread
     shutdown_ws_server()
-    ws_thread = None  # 重置线程变量
+    ws_thread = 无  # 重置线程变量
 
 
-# ---------------------- 主交互逻辑（含QQ适配，供start.py调用） ----------------------
+# ---------------------- 主交互逻辑（供start.py调用） ----------------------
 def run_with_ws():
     """带WS控制的完整交互会话（终端+QQ双模式）"""
     # 初始化AI客户端
@@ -216,7 +210,7 @@ def run_with_ws():
 
     global ws_thread
     while True:
-        user_input = input("你：").strip()
+        user_input = input("你：")。strip()
         if not user_input:
             continue  # 忽略空输入
 
@@ -289,7 +283,7 @@ def run_with_ws():
         chat_history.append(f"你：{user_input}\nAlice：{reply}")
 
 
-# ---------------------- 原始主入口（兼容单独运行main.py） ----------------------
+# ---------------------- 原始主入口（单独运行main.py） ----------------------
 def main():
     """不含QQ适配的原始交互模式"""
     init_persona()
