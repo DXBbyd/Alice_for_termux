@@ -7,7 +7,6 @@
 
 ### 第一步：克隆项目
 
-**主仓库（推荐）**
 ```bash
 git clone https://github.com/DXBbyd/Alice_for_termux.git
 ```
