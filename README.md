@@ -7,10 +7,10 @@
 git clone https://github.com/DXBbyd/Alice_for_termux.git
 ```
 
-镜像仓库（如遇网络问题）
+镜像仓库（如遇网络问题，使用傻芙独家加速！）
 
 ```bash
-git clone http://hk-proxy.gitwarp.com/https://github.com/DXBbyd/Alice_for_termux.git
+git clone https://github.fufumc.top/https://github.com/DXBbyd/Alice_for_termux.git
 ```
 
 第二步：进入项目目录
